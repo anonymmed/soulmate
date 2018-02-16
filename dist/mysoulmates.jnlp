@@ -8,9 +8,11 @@
   </information>
   <resources>
     <j2se version="1.6+" href="http://java.sun.com/products/autodl/j2se"/>
+    <jar href="lib\gson-2.8.2.jar" size="232932" download="eager" />
     <jar href="lib\jfoenix-8.0.1.jar" size="2405715" download="eager" />
     <jar href="lib\mysql-connector-java-5.1.23-bin.jar" size="834126" download="eager" />
-    <jar href="mysoulmates.jar" size="1065882" download="eager" />
+    <jar href="lib\stripe-java-5.31.0.jar" size="251282" download="eager" />
+    <jar href="mysoulmates.jar" size="4273210" download="eager" />
   </resources>
   <applet-desc  width="800" height="600" main-class="com.javafx.main.NoJavaFXFallback"  name="mysoulmates" >
     <param name="requiredFXVersion" value="8.0+"/>

@@ -6,30 +6,18 @@
 package mysoulmates.controllers;
 
 import com.jfoenix.controls.JFXButton;
-import com.jfoenix.controls.JFXListView;
-import com.oracle.jrockit.jfr.Producer;
 import java.io.IOException;
 import java.net.URL;
-import java.util.ArrayList;
-import java.util.List;
 import java.util.ResourceBundle;
-import java.util.logging.Level;
-import java.util.logging.Logger;
-import javafx.collections.FXCollections;
-import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
-import javafx.scene.Scene;
 import javafx.scene.control.Label;
-import javafx.scene.control.ListCell;
-import javafx.scene.control.ListView;
-import javafx.scene.image.Image;
+import javafx.scene.control.TableColumn;
+import javafx.scene.control.TableView;
+import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.image.ImageView;
 import javafx.stage.Stage;
-import javafx.util.Callback;
-import mysoulmates.entities.Client;
 import mysoulmates.entities.Produit;
-import mysoulmates.services.service_Client;
 import mysoulmates.services.service_DisplayWishlist;
 
 /**
@@ -42,32 +30,64 @@ public class ControllerDisplayWishList implements Initializable {
     /**
      * Initializes the controller class.
      */
-    
-   @FXML
-    private JFXListView<String> ProductDisplayList;
+ 
    @FXML
     private Label labelwishlist;  
    @FXML
    private JFXButton ConfirmWishlist;
+   
+      @FXML
+    private TableView<Produit> tableview;
+      
+      
+      //table collumns
+         @FXML
+    private TableColumn<Produit,JFXButton> action;
+    @FXML
+    private TableColumn<Produit,ImageView>logo;
+    @FXML
+    private TableColumn<Produit,String> product_Name;
+
+    @FXML
+    private TableColumn<Produit, String> product_Description;
+
+    @FXML
+    private TableColumn<Produit, Integer> price;
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
-                        ProductDisplayList.setStyle("-fx-background-insets: 0 ;");
-        service_DisplayWishlist.DisplayWishList(ProductDisplayList, new Client("mohamed.abdelhafidh@esprit.tn"));
 
-        
-        
+
+       // tableview.getItems().addAll(new Produit("med", "abdh", 15,new ImageView("/mysoulmates/img/fb.png")));
+ 
+
+        //columns initialization
+        action.setCellValueFactory(new PropertyValueFactory<>("delete"));
+                
+        logo.setCellValueFactory(new PropertyValueFactory<>("productImg"));
+        product_Name.setCellValueFactory(new PropertyValueFactory<>("nom"));
+       product_Description.setCellValueFactory(new PropertyValueFactory<>("description"));
+       price.setCellValueFactory(new PropertyValueFactory<>("prix"));
+        //collumns filling test
+
+            tableview.setItems(Controller_Wishlist.displayWishListe("mohamed.abdelhafidh@esprit.tn"));
+
+
+           
+
+ //tableview.getColumns().addAll(product_Name,product_Description,price);
     }
+    
+    
+    
+    @FXML
         public  void ConfirmWishList() throws IOException
         {
         ((Stage) ConfirmWishlist.getScene().getWindow()).close();
             service_DisplayWishlist s = new service_DisplayWishlist();
 
             s.ConfirmWishList(ConfirmWishlist);
-
-           {
-               
-           }
+          
         }    
     
 

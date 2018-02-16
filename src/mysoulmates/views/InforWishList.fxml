@@ -1,21 +1,33 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import com.jfoenix.controls.JFXButton?>
+<?import com.jfoenix.controls.JFXDatePicker?>
 <?import com.jfoenix.controls.JFXTextField?>
 <?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Separator?>
 <?import javafx.scene.layout.AnchorPane?>
 
-<AnchorPane id="AnchorPane" prefHeight="646.0" prefWidth="1119.0" style="-fx-background-color: #FFA07A; -fx-background-radius: 5px;" xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1" fx:controller="mysoulmates.controllers.Controller_InforWishList">
-      <AnchorPane layoutX="9.0" layoutY="12.0" minWidth="-Infinity" prefHeight="623.0" prefWidth="1100.0" style="-fx-background-color: linear-gradient(#345c99, #355c95 1.5%, #375b95 1.5%, #355c95 1.8%, #3a5d95 4.4%, #3c5c95 4.4%, #3c5c95 4.6%, #3d5e94 4.6%, #3d5e94 4.7%, #3c5c95 4.7%, #3d5d96 5.1%, #3d5e94 5.1%, #3d5e94 5.2%, #3e5d94 5.2%, #3d5e94 5.5%, #3e5d94 6.2%, #3f5c94 6.2%, #3f5c94 6.6%, #405e94 6.6%, #405e94 7.3%, #425d94 7.3%, #425d94 8.3%, #435c94 8.3%, #475e94 10.2%, #495d92 12%, #4a5e91 12.8%, #4c5d91 12.8%, #4d5e92 13.5%, #4d5f91 13.5%, #4d5f91 13.8%, #4e5e91 13.8%, #4e5e91 14.9%, #505d91 14.9%, #525e90 16.5%, #535d90 16.5%, #535d90 16.7%, #525e90 16.7%, #525e90 16.9%, #535d90 16.9%, #565e8f 18.6%, #585e90 18.6%, #585e90 18.7%, #565e8f 18.7%, #565e8f 18.9%, #585e90 18.9%, #5b5f8e 21.3%, #5d5f8f 21.3%, #5c5e8e, #5b5f8e 21.5%, #5d5f8f 21.7%, #5e5f8d 23.1%, #605e8d 23.2%, #63608d 25.3%, #655f8d 25.3%, #67608c 28.4%, #685f8c 28.4%, #6b608b 31.3%, #6c5f8a 31.3%, #6c5f8a 32.3%, #6e5f8a 32.3%, #6e5f8a 32.6%, #6c5f8a 32.6%, #6c5f8a 32.7%, #6e5f8a 32.7%, #6f5e8a 34.5%, #705d8a 34.5%, #705d8a 34.8%, #6f5e8a 34.8%, #6f5e8a 35%, #705d8a 35%, #715f89 36%, #735e89 36%, #735e89 36.3%, #715f89 36.3%, #715f89 36.5%, #735e89 36.5%, #735e89 37.5%, #745d87 37.5%, #755e88 38.9%, #775e88 38.9%, #775e86 40.5%, #785d86 40.5%, #795f86 42%, #7a5e86 42%, #7a5e86 43.5%, #7c5d86 43.5%, #7c5d86 43.7%, #7c5e84 43.7%, #7d5f85 45%, #7e5e85 45%, #7e5e85 46%, #805d85 46%, #7e5e83 46.1%, #825e84 47.5%, #815f84 47.7%, #825e82 48.8%, #835d82 48.8%, #845e83 50.4%, #865e83 50.4%, #845e83 50.6%, #865e81 51.8%, #875d81 51.8%, #885e82 52.8%, #895d81 52.8%, #895d81 53%, #875d81 53%, #875d81 53.2%, #895d81 53.2%, #895d81 54.1%, #8b5d81 54.1%, #8d5e80 57.1%, #8f5d80 57.1%, #8f5d80 58.4%, #8f5e7e 58.4%, #905d7e 58.8%, #905c80 58.8%, #905d7e 60.1%, #935d7f 60.1%, #8f597b 65.2%, #8c5978 65.2%, #8c5978 65.4%, #8e5878 65.4%, #8e5878 65.5%, #8b5879 65.5%, #8b5879 65.7%, #8d5779 65.7%, #8d5779 65.8%, #8b5877 65.8%, #8a5778 66.1%, #8c5676 66.1%, #8a5778 66.2%, #895675 67%, #885777 67%, #885576 67.2%, #875676 67.5%, #885574, #865575, #875475 67.8%, #845373 68.9%, #815272 69.1%, #825171 69.2%, #7f5072 69.7%, #814f72 69.8%, #7d4e6e 70.7%, #75496a 73.3%, #744967 73.3%, #734768, #734866 73.7%, #734768 73.8%, #704767, #714566 74.2%, #6f4666 74.3%, #6c4363 75.7%, #6b4463 75.7%, #694261 76.3%, #684062, #684160 76.5%, #684160 76.7%, #673f61 76.8%, #603b5c 78.4%, #5c3959 79.7%, #503150 82.5%, #4b2e4d 83.8%, #492f4c 84%, #482d4c 84.1%, #472d4a 84.3%, #452a49 85%, #402745 86.5%, #3e2744 86.5%, #3a2340 87.7%, #382440 87.8%, #382440 88.1%, #37223f 88.1%, #341f3e 88.9%, #34203c 88.9%, #33203e 89.1%, #331e3d, #321f3b 89.3%, #301d39 90%, #251633 93%); -fx-background-radius: 5px;">
-      <children>
-         <Label layoutX="24.0" layoutY="31.0" prefHeight="117.0" prefWidth="1092.0" style="-fx-font-family: dreamwish; -fx-font-size: 100px;" text="Billing Informations" />
-         <Label layoutX="24.0" layoutY="179.0" prefHeight="21.0" prefWidth="99.0" text="First Name" />
-         <JFXTextField layoutX="142.0" layoutY="174.0" />
-         <Label layoutX="24.0" layoutY="248.0" text="Last Name" />
-         <JFXTextField layoutX="142.0" layoutY="233.0" />
-         <Label layoutX="24.0" layoutY="312.0" text="Address" />
-         <JFXTextField layoutX="142.0" layoutY="296.0" />
-         <Label layoutX="24.0" layoutY="375.0" text="Zip Code" />
-         <JFXTextField layoutX="142.0" layoutY="360.0" />
-         <Label layoutX="24.0" layoutY="447.0" text="Phone Number" />
-      </children></AnchorPane>
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="800.0" prefWidth="1100.0" style="-fx-background-image: url('file:C:/Users/COMPUTER/Documents/NetBeansProjects/mysoulmates/src/mysoulmates/psd/background_bill.jpg');" xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1" fx:controller="mysoulmates.controllers.Controller_InforWishList">
+   <children>
+      <Separator layoutX="597.0" layoutY="268.0" orientation="VERTICAL" prefHeight="368.0" prefWidth="7.0" />
+      <JFXButton layoutX="515.0" layoutY="663.0" onAction="#insertBillingInformation" prefHeight="31.0" prefWidth="164.0" text="Proceed To Payment" />
+      <Label layoutX="184.0" layoutY="247.0" prefHeight="21.0" prefWidth="94.0" text="First Name" />
+      <JFXTextField fx:id="fname" layoutX="184.0" layoutY="268.0" />
+      <Label layoutX="184.0" layoutY="324.0" text="Last Name" />
+      <JFXTextField fx:id="lname" layoutX="184.0" layoutY="345.0" />
+      <Label layoutX="184.0" layoutY="405.0" text="Date Of Birth" />
+      <Label layoutX="184.0" layoutY="484.0" text="Address Line" />
+      <JFXTextField fx:id="address" layoutX="184.0" layoutY="505.0" />
+      <Label layoutX="184.0" layoutY="557.0" text="City" />
+      <JFXTextField fx:id="city" layoutX="184.0" layoutY="578.0" />
+      <Label layoutX="638.0" layoutY="247.0" text="State" />
+      <JFXTextField fx:id="state" layoutX="638.0" layoutY="268.0" />
+      <Label layoutX="638.0" layoutY="324.0" text="Zip code" />
+      <JFXTextField fx:id="zip" layoutX="638.0" layoutY="345.0" />
+      <Label layoutX="638.0" layoutY="395.0" text="Phone number" />
+      <JFXTextField fx:id="phone" layoutX="638.0" layoutY="416.0" />
+      <Label layoutX="638.0" layoutY="463.0" text="Contact email address" />
+      <JFXTextField fx:id="c_email" layoutX="638.0" layoutY="490.0" />
+      <JFXDatePicker fx:id="dob" layoutX="184.0" layoutY="426.0" />
+   </children>
 </AnchorPane>

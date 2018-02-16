@@ -10,8 +10,12 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Observable;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
+import javafx.scene.image.ImageView;
 import mysoulmates.entities.Client;
 import mysoulmates.entities.Produit;
 import mysoulmates.utils.Bd;
@@ -25,17 +29,18 @@ public class service_Wishliste {
     
         static Bd bd = Bd.getInstance();
 
-        public static List<Produit> displayWishListe(String email)
+        public static ObservableList<Produit> displayWishListe(String email)
         {
-            List<Produit> l1 = new ArrayList<Produit>();
-                    String req="select * from wishliste";
+            ObservableList<Produit> l1 = FXCollections.observableArrayList();
+                    String req="select * from wishliste where email_client = ? ";
 
                     try {
             PreparedStatement statement = bd.getConnection().prepareStatement(req);
+            statement.setString(1, email);
             ResultSet rs= statement.executeQuery();
             while(rs.next())
             {
-              l1.add(new Produit(rs.getString("nom_prod"),rs.getString("description"),rs.getInt("prix_prod")));
+              l1.add(new Produit(rs.getString("nom_prod"),rs.getString("description"),rs.getInt("prix_prod"),new ImageView("/mysoulmates/img/fb.png")));
             }
         } catch (SQLException ex) {
             Logger.getLogger(Bd.class.getName()).log(Level.SEVERE, null, ex);

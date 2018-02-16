@@ -7,6 +7,9 @@ package mysoulmates.controllers;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Observable;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import mysoulmates.entities.Client;
 import mysoulmates.entities.Produit;
 import mysoulmates.services.service_Wishliste;
@@ -25,11 +28,11 @@ public class Controller_Wishlist {
         service_Wishliste.addToWishlist(listeWish,email);
 
     }
-            public static ArrayList<Produit> displayWishListe(String email)
+            public static ObservableList<Produit> displayWishListe(String email)
             {
-                List<Produit> l1 = new ArrayList<Produit>();
-                l1=service_Wishliste.displayWishListe(email);
-                return (ArrayList<Produit>)l1;
+                ObservableList<Produit> l1 = FXCollections.observableArrayList();
+                        l1=service_Wishliste.displayWishListe(email);
+                return l1;
             }
             
                     public static void DeleteFromWishList(Produit p)

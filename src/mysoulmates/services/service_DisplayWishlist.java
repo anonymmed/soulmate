@@ -7,6 +7,7 @@ package mysoulmates.services;
 
 import com.jfoenix.controls.JFXButton;
 import com.jfoenix.controls.JFXListView;
+import com.oracle.jrockit.jfr.Producer;
 import java.io.IOException;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -19,6 +20,7 @@ import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.ListCell;
 import javafx.scene.control.ListView;
+import javafx.scene.control.TableView;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.GridPane;
@@ -50,6 +52,7 @@ public class service_DisplayWishlist {
                                           
         ProductDisplayList.setCellFactory(new Callback<ListView<String>,ListCell<String>>(){
             @Override
+            
             public ListCell<String> call(ListView<String> param) {
                 ListCell<String> cell = new ListCell<String>(){
                  @Override
@@ -91,4 +94,8 @@ public class service_DisplayWishlist {
                 
                 stage.show();
 }
+    
+    
+    
+
 }

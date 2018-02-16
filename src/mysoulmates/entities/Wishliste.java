@@ -5,6 +5,7 @@
  */
 package mysoulmates.entities;
 
+import com.jfoenix.controls.JFXButton;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -16,7 +17,15 @@ public class Wishliste {
     private int prix;
     private String email_client;
     private List<Produit> listeWish;
+    private JFXButton delete;
 
+    public JFXButton getDelete() {
+        return delete;
+    }
+
+    public void setDelete(JFXButton delete) {
+        this.delete = delete;
+    }
         public Wishliste() {
         this.listeWish= new ArrayList<Produit>();
     }

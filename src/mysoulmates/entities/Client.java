@@ -13,6 +13,15 @@ public class Client {
     private String email;
     private Wishliste wishliste;
     private String type;
+    private Command command;
+
+    public Command getCommand() {
+        return command;
+    }
+
+    public void setCommand(Command command) {
+        this.command = command;
+    }
 
     public Client(String email) {
         this.email = email;
