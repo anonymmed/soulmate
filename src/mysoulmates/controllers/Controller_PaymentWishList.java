@@ -13,6 +13,7 @@ import com.stripe.exception.AuthenticationException;
 import com.stripe.exception.CardException;
 import com.stripe.exception.InvalidRequestException;
 import com.stripe.model.Charge;
+import com.stripe.model.Invoice;
 import java.io.IOException;
 import java.net.URL;
 import java.util.HashMap;
@@ -27,6 +28,7 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.DatePicker;
 import javafx.stage.Stage;
+import javax.mail.MessagingException;
 import mysoulmates.entities.Client;
 import mysoulmates.services.service_Command;
 
@@ -55,7 +57,7 @@ public class Controller_PaymentWishList implements Initializable {
     }   
 
     @FXML
-            public  void createPayment() throws IOException
+            public  void createPayment() throws IOException, MessagingException
             {
 
                 if (client!=null)
@@ -73,7 +75,8 @@ public class Controller_PaymentWishList implements Initializable {
                         Stage stage = new Stage();
                         stage.setScene(new Scene(root));
                         stage.show();
-                    }
+                        Controller_SendMail.sendMail((String)mybillinfo.get("contact_email"),"Payment Successfull", "Order Successful :\n Description :\n Ammount: "+mybillinfo.get("ammount"));
+                   }
 
                     }
                     catch (AuthenticationException | InvalidRequestException | APIConnectionException | CardException | APIException ex) {
@@ -87,8 +90,8 @@ public class Controller_PaymentWishList implements Initializable {
  
                         }
                     }
-                   
-                }
 
+                }
+                  
             }
 }

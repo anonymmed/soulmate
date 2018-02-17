@@ -13,11 +13,10 @@ import com.stripe.exception.CardException;
 import com.stripe.exception.InvalidRequestException;
 import com.stripe.model.Charge;
 import com.stripe.model.Customer;
+import com.stripe.model.Invoice;
 import com.stripe.model.Token;
 import java.util.HashMap;
 import java.util.Map;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 
 /**
  *
@@ -145,8 +144,8 @@ public class PaymentOrder {
     {
                         Stripe.apiKey=api;
 
-        Charge charge = null;
-        Map<String, Object> chargeParams = new HashMap<String, Object>();
+        Charge charge;
+        Map<String, Object> chargeParams = new HashMap<>();
        
 chargeParams.put("amount",(int) Math.round(ammount*42));
 chargeParams.put("currency", "usd");
@@ -158,10 +157,10 @@ chargeParams.put("customer", createClient(email, name, cc, exp_y, exp_m, cvv, ad
         public  Token createToken(String name,String cc,String exp_y,String exp_m,String cvv,String address,String city,String state,String zip,String country) throws AuthenticationException, InvalidRequestException, APIConnectionException, CardException, APIException 
 
     {
-        Token token = null;
+        Token token ;
             
-                Map<String, Object> tokenParams = new HashMap<String, Object>();
-                Map<String, Object> cardParams = new HashMap<String, Object>();
+                Map<String, Object> tokenParams = new HashMap<>();
+                Map<String, Object> cardParams = new HashMap<>();
                 cardParams.put("name",name);
                 cardParams.put("number", cc);
                 cardParams.put("exp_month", exp_m);
@@ -195,6 +194,5 @@ Customer customer = null;
             
         return customer;
     }
-
     
 }

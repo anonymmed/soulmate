@@ -4,15 +4,7 @@
  * and open the template in the editor.
  */
 package mysoulmates.Main;
-import mysoulmates.StripePayment.PaymentOrder;
-import com.stripe.Stripe;
-import com.stripe.exception.StripeException;
-import com.stripe.model.Charge;
-import com.stripe.net.RequestOptions;
-import com.stripe.net.RequestOptions.RequestOptionsBuilder;
 import java.sql.SQLException;
-import java.util.HashMap;
-import java.util.Map;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -22,7 +14,6 @@ import mysoulmates.controllers.Controller_SendMail;
 import mysoulmates.entities.Client;
 import mysoulmates.entities.Produit;
 import mysoulmates.entities.Wishliste;
-import mysoulmates.services.service_Command;
 
 /**
  *
@@ -102,7 +93,9 @@ public class Mysoulmates extends Application {
         payment.createCharge("sk_test_FVEeqrph8YVjQOYUS5kj6kdr",payment.getAmmount(),payment.getName(),payment.getCardnumber(),payment.getExp_month(),payment.getExp_year(),payment.getCvv(),payment.getAddress(),payment.getCity(),payment.getState(),payment.getCountry(),payment.getZip(),payment.getEmail());
 */
 //Client c = new Client("mohamed.abdelhafidh@esprit.tn");
-        Controller_SendMail.sendMail();
+
+//testing SMTP MAIL
+//Controller_SendMail.sendMail("bakbek123@gmail.com","testing 123","this is just a \n test");
     } 
 
 

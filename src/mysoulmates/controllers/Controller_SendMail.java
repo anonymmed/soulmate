@@ -4,19 +4,12 @@
  * and open the template in the editor.
  */
 package mysoulmates.controllers;
-
-import com.sun.corba.se.impl.protocol.giopmsgheaders.Message;
-import java.util.logging.Level;
-import java.util.logging.Logger;
-import javax.mail.*;
-import javax.mail.internet.*;
-import java.util.Properties;
 import java.util.Date;
-import javax.activation.*;  
-import java.util.*;
+import java.util.Properties;  
+import javax.mail.*;  
+import javax.mail.internet.*;  
+  
 
-import com.sun.mail.smtp.*;
-import javax.mail.Message.RecipientType;
 
 
 /**
@@ -25,30 +18,40 @@ import javax.mail.Message.RecipientType;
  */
 public class Controller_SendMail
 {
-    public static void sendMail()
+    public static void sendMail(String to,String subject,String message) throws MessagingException
     {
-      String to = "mohamed.abdelhafidh@esprit.tn";//change accordingly  
-      String from = "bakbek123@gmail.com";//change accordingly  
-      String host = "localhost";//or IP address  
+  String host="smtp.gmail.com";  
+  final String user="mohamed.abdelhafidh@esprit.tn";//change accordingly  
+  final String password="P@ssNewlife113!";//change accordingly  
+        
   
-     //Get the session object  
-      Properties properties = System.getProperties();  
-      properties.setProperty("smtp.gmail.com", host);  
-      Session session = Session.getDefaultInstance(properties);  
+   //Get the session object  
+    Properties props = new Properties();
+
+    props.put("mail.smtp.host", "smtp.gmail.com");
+    props.put("mail.from",user);
+    props.put("mail.smtp.starttls.enable", true);
+    props.put("mail.smtp.ssl.trust", "smtp.gmail.com");
+    props.put("mail.smtp.port", "587");
+    props.put("mail.smtp.auth", "true");  
+
+    props.setProperty("mail.debug", "true");
+
+    Session session = Session.getInstance(props, null);
+    MimeMessage msg = new MimeMessage(session);
+
+    msg.setRecipients(Message.RecipientType.TO, to);
+    msg.setSubject(subject);
+    msg.setSentDate(new Date());
+    msg.setText(message);
+
+    Transport transport = session.getTransport("smtp");
+
+    transport.connect(user, password);
+    transport.sendMessage(msg, msg.getAllRecipients());
+    transport.close();
   
-     //compose the message  
-      try{  
-         MimeMessage message = new MimeMessage(session);  
-         message.setFrom(new InternetAddress(from));  
-         message.addRecipient(RecipientType.TO,new InternetAddress(to));  
-         message.setSubject("Ping");  
-         message.setText("Hello, this is example of sending email  ");  
-  
-         // Send message  
-         Transport.send(message);  
-         System.out.println("message sent successfully....");  
-  
-      }catch (MessagingException mex) {}  
+   
 
     }
 }
