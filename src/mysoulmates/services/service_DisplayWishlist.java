@@ -41,7 +41,6 @@ public class service_DisplayWishlist {
     public static void DisplayWishList(JFXListView<String> ProductDisplayList,Client c)
     {
         Button b = new Button("med");
-                GridPane pane = new GridPane();
                 
                 
         ObservableList<String> ProductDisplayFillList = FXCollections.observableArrayList();
