@@ -7,8 +7,8 @@ package mysoulmates.controllers;
 
 import java.util.ArrayList;
 import java.util.List;
-import mysoulmates.entities.Client;
-import mysoulmates.services.service_Client;
+import mysoulmates.entities.User;
+import mysoulmates.services.UserService;
 
 /**
  *
@@ -18,20 +18,20 @@ public class Controller_Client {
  
     
     
-        public static void likeClient(Client c1,Client c2)
+        public static void likeClient(User c1,User c2)
         {
-            service_Client.likeClient(c1, c2);
+            UserService.likeClient(c1, c2);
         }
         
-            public static List<Client> DisplayLikes(Client c)
+            public static List<User> DisplayLikes(User c)
             {
-                List<Client>l1 = new ArrayList<Client>();
-                l1=service_Client.DisplayLikes(c);
+                List<User>l1 = new ArrayList<User>();
+                l1=UserService.DisplayLikes(c);
                 return l1;
             }
             
-                public static void DeleteLike(Client c1,Client c2)
+                public static void DeleteLike(User c1,User c2)
                 {
-                    service_Client.DeleteLike(c1, c2);
+                    UserService.DeleteLike(c1, c2);
                 }
 }

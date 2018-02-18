@@ -16,8 +16,8 @@ import java.util.logging.Logger;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.scene.image.ImageView;
-import mysoulmates.entities.Client;
-import mysoulmates.entities.Produit;
+import mysoulmates.entities.User;
+import mysoulmates.entities.Product;
 import mysoulmates.utils.Bd;
 
 /**
@@ -29,10 +29,10 @@ public class service_Wishliste {
     
         static Bd bd = Bd.getInstance();
 
-        public static ObservableList<Produit> displayWishListe(String email)
+        public static ObservableList<Product> displayWishListe(String email)
         {
-            ObservableList<Produit> l1 = FXCollections.observableArrayList();
-                    String req="select * from wishliste where email_client = ? ";
+            ObservableList<Product> l1 = FXCollections.observableArrayList();
+                    String req="select * from wishlist where email_client = ? ";
 
                     try {
             PreparedStatement statement = bd.getConnection().prepareStatement(req);
@@ -40,7 +40,7 @@ public class service_Wishliste {
             ResultSet rs= statement.executeQuery();
             while(rs.next())
             {
-              l1.add(new Produit(rs.getString("nom_prod"),rs.getString("description"),rs.getInt("prix_prod"),new ImageView("/mysoulmates/img/fb.png")));
+              l1.add(new Product(rs.getString("prod_name"),rs.getString("description"),rs.getInt("prod_price"),new ImageView("/mysoulmates/images/Transparent_Hearts_Decorative_Element.png")));
             }
         } catch (SQLException ex) {
             Logger.getLogger(Bd.class.getName()).log(Level.SEVERE, null, ex);
@@ -50,14 +50,14 @@ public class service_Wishliste {
         }
         
         
-        public static void addToWishlist(ArrayList<Produit> listeWish , String email)
+        public static void addToWishlist(ArrayList<Product> listeWish , String email)
     {
-        for (Produit p : listeWish)
+        for (Product p : listeWish)
         {
             
 
         try {
-        String req="Insert into wishliste (nom_prod,description,email_client,prix_prod) values(?,?,?,?)";
+        String req="Insert into wishlist (prod_name,description,email_client,prod_price) values(?,?,?,?)";
        
             PreparedStatement statement = bd.getConnection().prepareStatement(req);
             statement.setString(1,p.getNom());
@@ -74,9 +74,9 @@ public class service_Wishliste {
 
     }
         
-        public static void DeleteFromWishList(Produit p)
+        public static void DeleteFromWishList(Product p)
         {
-            String req = "Delete from wishliste where nom_prod = ?";
+            String req = "Delete from wishlist where prod_name = ?";
             try {
             PreparedStatement statement = bd.getConnection().prepareStatement(req);
             statement.setString(1, p.getNom());
@@ -91,10 +91,10 @@ public class service_Wishliste {
         
         
         
-        public static int CalculatePrix(Client c)
+        public static int CalculatePrix(User c)
         {
             int prix=0;
-            String req = "select prix_prod from wishliste where email_client = ?";
+            String req = "select prod_price from wishlist where email_client = ?";
             try {
                 PreparedStatement statement = bd.getConnection().prepareStatement(req);
                statement.setString(1,c.getEmail());

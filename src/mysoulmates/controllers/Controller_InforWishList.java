@@ -19,7 +19,7 @@ import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
-import mysoulmates.entities.Client;
+import mysoulmates.entities.User;
 import mysoulmates.entities.Command;
 
 /**
@@ -60,7 +60,7 @@ public class Controller_InforWishList implements Initializable {
     public void insertBillingInformation() throws IOException
     {
         
-Client c1 = new Client("mohamed.abdelhafidh@esprit.tn");
+User c1 = new User("mohamed.abdelhafidh@esprit.tn");
         int prix=Controller_Wishlist.CalculatePrix(c1);
         System.out.println(prix);
                 Command comm = new Command(fname.getText(), lname.getText(), address.getText(), city.getText(), state.getText(), zip.getText(), c_email.getText(), phone.getText(),dob.getValue(),prix);

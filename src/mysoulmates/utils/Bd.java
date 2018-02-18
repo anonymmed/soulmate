@@ -4,31 +4,34 @@
  * and open the template in the editor.
  */
 package mysoulmates.utils;
-import java.sql.*;
+
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.SQLException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
+
 /**
  *
- * @author Mohamed
+ * @author ryhab
  */
 public class Bd {
-        static Bd instance;
+    static Bd instance;
     private String url="jdbc:mysql://localhost:3306/mysoulmate";
     private String user="root";
     private String  password="V4Vendetta";
       Connection connection ;
-
-    private Bd(){
-         try {
+    private  Bd() {
+        try {
             connection = DriverManager.getConnection(url, user, password);
 
         } catch (SQLException ex) {
             Logger.getLogger(Bd.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
-    
-      public static Bd getInstance(){
+
+  public static Bd getInstance(){
        if(instance==null){
            return instance=new Bd();
        }
@@ -38,6 +41,4 @@ public class Bd {
        public Connection getConnection() {
         return connection;
     }
-
 }
-

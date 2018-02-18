@@ -17,7 +17,7 @@ import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.image.ImageView;
 import javafx.stage.Stage;
-import mysoulmates.entities.Produit;
+import mysoulmates.entities.Product;
 import mysoulmates.services.service_DisplayWishlist;
 
 /**
@@ -37,28 +37,28 @@ public class ControllerDisplayWishList implements Initializable {
    private JFXButton ConfirmWishlist;
    
       @FXML
-    private TableView<Produit> tableview;
+    private TableView<Product> tableview;
       
       
       //table collumns
          @FXML
-    private TableColumn<Produit,JFXButton> action;
+    private TableColumn<Product,JFXButton> action;
     @FXML
-    private TableColumn<Produit,ImageView>logo;
+    private TableColumn<Product,ImageView>logo;
     @FXML
-    private TableColumn<Produit,String> product_Name;
+    private TableColumn<Product,String> product_Name;
 
     @FXML
-    private TableColumn<Produit, String> product_Description;
+    private TableColumn<Product, String> product_Description;
 
     @FXML
-    private TableColumn<Produit, Integer> price;
+    private TableColumn<Product, Integer> price;
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
 
 
-       // tableview.getItems().addAll(new Produit("med", "abdh", 15,new ImageView("/mysoulmates/img/fb.png")));
+       // tableview.getItems().addAll(new Product("med", "abdh", 15,new ImageView("/mysoulmates/img/fb.png")));
  
 
         //columns initialization

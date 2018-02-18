@@ -37,7 +37,7 @@ public class Controller_Mainfxml implements Initializable {
     public  void GoToWishList() throws IOException
     {
         ((Stage)gotowishlist.getScene().getWindow()).close();
-        FXMLLoader fXMLLoader = new FXMLLoader(getClass().getResource("/mysoulmates/views/DisplayWishList.fxml"));
+        FXMLLoader fXMLLoader = new FXMLLoader(getClass().getResource("/mysoulmates/Views/DisplayWishList.fxml"));
         Parent root = fXMLLoader.load();
         Stage stage = new Stage();
         stage.setScene(new Scene(root));

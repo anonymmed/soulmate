@@ -5,7 +5,7 @@
  */
 package mysoulmates.controllers;
 
-import mysoulmates.entities.Client;
+import mysoulmates.entities.User;
 import mysoulmates.services.service_Command;
 
 /**
@@ -14,7 +14,7 @@ import mysoulmates.services.service_Command;
  */
 public class Controller_Command {
     
-    public static void insertBillingInformation(Client c)
+    public static void insertBillingInformation(User c)
     {
         service_Command.insertBillingInformation(c);
     }

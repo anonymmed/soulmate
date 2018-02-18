@@ -7,12 +7,9 @@ package mysoulmates.services;
 
 import com.jfoenix.controls.JFXButton;
 import com.jfoenix.controls.JFXListView;
-import com.oracle.jrockit.jfr.Producer;
 import java.io.IOException;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
-import javafx.event.ActionEvent;
-import javafx.event.EventHandler;
 import javafx.fxml.FXMLLoader;
 import javafx.geometry.Pos;
 import javafx.scene.Parent;
@@ -20,15 +17,13 @@ import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.ListCell;
 import javafx.scene.control.ListView;
-import javafx.scene.control.TableView;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
-import javafx.scene.layout.GridPane;
 import javafx.stage.Stage;
 import javafx.util.Callback;
 import mysoulmates.controllers.Controller_Wishlist;
-import mysoulmates.entities.Client;
-import mysoulmates.entities.Produit;
+import mysoulmates.entities.User;
+import mysoulmates.entities.Product;
 
 /**
  *
@@ -38,13 +33,13 @@ public class service_DisplayWishlist {
     
     
     
-    public static void DisplayWishList(JFXListView<String> ProductDisplayList,Client c)
+    public static void DisplayWishList(JFXListView<String> ProductDisplayList,User c)
     {
         Button b = new Button("med");
                 
                 
         ObservableList<String> ProductDisplayFillList = FXCollections.observableArrayList();
-                          for (Produit p : Controller_Wishlist.displayWishListe(c.getEmail()))
+                          for (Product p : Controller_Wishlist.displayWishListe(c.getEmail()))
                               {
                                   ProductDisplayFillList.add(p.getNom());
 

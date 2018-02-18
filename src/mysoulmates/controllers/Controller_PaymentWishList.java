@@ -29,7 +29,7 @@ import javafx.scene.Scene;
 import javafx.scene.control.DatePicker;
 import javafx.stage.Stage;
 import javax.mail.MessagingException;
-import mysoulmates.entities.Client;
+import mysoulmates.entities.User;
 import mysoulmates.services.service_Command;
 
 /**
@@ -43,7 +43,7 @@ public class Controller_PaymentWishList implements Initializable {
      * Initializes the controller class.
      */
         
-        public static Client client=null;
+        public static User client=null;
         @FXML
     private JFXTextField name,cc,cvv,exp_y,exp_m;
         @FXML

@@ -17,7 +17,7 @@ import javafx.collections.ObservableList;
 import mysoulmates.controllers.ControllerDisplayWishList;
 import mysoulmates.controllers.Controller_Command;
 import mysoulmates.controllers.Controller_Wishlist;
-import mysoulmates.entities.Client;
+import mysoulmates.entities.User;
 import mysoulmates.utils.Bd;
 
 /**
@@ -28,7 +28,7 @@ public class service_Command {
     
             static Bd bd = Bd.getInstance();
 
-    public static void insertBillingInformation(Client c)
+    public static void insertBillingInformation(User c)
     {
         String req ="insert into command (first_name,last_name,dob,address,city,state,zip,phone,contact_email,creation_date,price) values (?,?,?,?,?,?,?,?,?,NOW(),?)";
         
@@ -53,7 +53,7 @@ public class service_Command {
         
         
     }
-        public static  HashMap<String,Object>getCommandInfo(Client c)
+        public static  HashMap<String,Object>getCommandInfo(User c)
     {
         String req = "select * from command where contact_email = ? ";
         Map<String,Object> billingInformation = new HashMap<String,Object>();
