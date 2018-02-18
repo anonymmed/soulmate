@@ -58,7 +58,7 @@ public class ControllerDisplayWishList implements Initializable {
         // TODO
 
 
-       // tableview.getItems().addAll(new Product("med", "abdh", 15,new ImageView("/mysoulmates/img/fb.png")));
+       // tableview.getItems().addAll(new Produit("med", "abdh", 15,new ImageView("/mysoulmates/img/fb.png")));
  
 
         //columns initialization

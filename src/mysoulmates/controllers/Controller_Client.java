@@ -5,6 +5,7 @@
  */
 package mysoulmates.controllers;
 
+import java.sql.ResultSet;
 import java.util.ArrayList;
 import java.util.List;
 import mysoulmates.entities.User;
@@ -23,11 +24,11 @@ public class Controller_Client {
             UserService.likeClient(c1, c2);
         }
         
-            public static List<User> DisplayLikes(User c)
+            public static ResultSet DisplayLikes(User c) throws Exception
             {
-                List<User>l1 = new ArrayList<User>();
-                l1=UserService.DisplayLikes(c);
-                return l1;
+                ResultSet rs;
+                rs=UserService.DisplayLikes(c);
+                return rs;
             }
             
                 public static void DeleteLike(User c1,User c2)

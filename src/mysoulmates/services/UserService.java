@@ -174,26 +174,33 @@ statement.executeUpdate();
     }
     
     
-    public static List<User> DisplayLikes(User c)
+    public static ResultSet DisplayLikes(User c) throws Exception
     {
-        List<User> l1 = new ArrayList<User>();
-        String req = "select liked from likes where liked_by = ?";
+      //  List<User> l1 = new ArrayList<>();
+        ResultSet rs=null;
+        String req = "select * from user u inner join likes l on u.email=l.liked";
         try
         {
                     PreparedStatement statement = ds.getConnection().prepareStatement(req);
-            statement.setString(1, c.getEmail());
-            ResultSet rs = statement.executeQuery();
-            while(rs.next())
+             rs = statement.executeQuery();
+            /*while(rs.next())
             {
-                l1.add(new User(rs.getString("liked")));
-            }
+                
+                l1.add(new User(rs.getString("fname"),rs.getString("lname"),rs.getString("liked"),"*****",1,rs.getString("username"),rs.getInt("phoneNumber"),rs.getString("genfer"),rs.getString("image"),rs.getInt("age"),rs.getString("address"),"chihemek",1));
+            }*/
+            
+            
         }
         catch(SQLException ex)
         {
                                   Logger.getLogger(Bd.class.getName()).log(Level.SEVERE, null, ex);
 
         }
-        return l1;
+        if (rs== null)
+        {
+            throw new Exception("error no data in result set");
+        }
+        return rs;
     }
     
     public static void DeleteLike(User c1,User c2)

@@ -17,10 +17,12 @@ import java.time.format.DateTimeFormatter;
 import java.util.ResourceBundle;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javafx.animation.FadeTransition;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
@@ -28,8 +30,10 @@ import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
+import javafx.scene.layout.AnchorPane;
 import javafx.stage.FileChooser;
 import javafx.stage.Stage;
+import javafx.util.Duration;
 
 /**
  * FXML Controller class
@@ -41,6 +45,8 @@ public class ProfilController implements Initializable {
     @FXML
     private TextField firstname;
     @FXML
+    private JFXButton viewlikes;
+    @FXML
     private TextField lastname;
     @FXML
     private TextField email;
@@ -50,7 +56,8 @@ public class ProfilController implements Initializable {
     private TextField phonenumber;
     @FXML
     private PasswordField password;
-   
+    @FXML
+    private TextField username;
     @FXML
     private TextField address;
     @FXML
@@ -65,6 +72,9 @@ public class ProfilController implements Initializable {
     private File file;
     @FXML
     private JFXButton gotowishlist;
+     @FXML
+    private AnchorPane holderPane;
+
     /**
      * Initializes the controller class.
      */
@@ -82,7 +92,7 @@ public class ProfilController implements Initializable {
         password.setText(u.getPassword());
         phonenumber.setText(Integer.toString(u.getPhoneNumber()));
         address.setText(u.getAddress());
-
+        username.setText(u.getUsername());
         // TODO
     }
 
@@ -148,5 +158,31 @@ LocalDate localDate = LocalDate.now();
         stage.setScene(new Scene(root));
         stage.show();
     }
+    @FXML
+    public void gotomylikes() throws IOException
+    {
+        ((Stage)viewlikes.getScene().getWindow()).close();
+        FXMLLoader fXMLLoader = new FXMLLoader(getClass().getResource("/mysoulmates/Views/displayMyLikes.fxml"));
+        Parent rooted = fXMLLoader.load();
+        Stage stageed = new Stage();
+        stageed.setScene(new Scene(rooted));
+        stageed.show();
+    }
+                
+        private void setNode(Node node)
+        {
+        holderPane.getChildren().clear();
+        holderPane.getChildren().add((Node) node);
 
-}
+        FadeTransition ft = new FadeTransition(Duration.millis(1500));
+        ft.setNode(node);
+        ft.setFromValue(0.1);
+        ft.setToValue(1);
+        ft.setCycleCount(1);
+        ft.setAutoReverse(false);
+        ft.play();
+    }
+
+    }
+
+
