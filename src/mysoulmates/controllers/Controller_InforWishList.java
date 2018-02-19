@@ -21,6 +21,8 @@ import javafx.scene.Scene;
 import javafx.stage.Stage;
 import mysoulmates.entities.User;
 import mysoulmates.entities.Command;
+import mysoulmates.entities.Session;
+import mysoulmates.services.UserService;
 
 /**
  * FXML Controller class
@@ -59,8 +61,11 @@ public class Controller_InforWishList implements Initializable {
     @FXML
     public void insertBillingInformation() throws IOException
     {
-        
-User c1 = new User("mohamed.abdelhafidh@esprit.tn");
+        UserService us = new UserService();
+        int currentSession = Session.getCurrentSession();
+User c1 = new User();
+c1=us.findById(currentSession);
+
         int prix=Controller_Wishlist.CalculatePrix(c1);
         System.out.println(prix);
                 Command comm = new Command(fname.getText(), lname.getText(), address.getText(), city.getText(), state.getText(), zip.getText(), c_email.getText(), phone.getText(),dob.getValue(),prix);

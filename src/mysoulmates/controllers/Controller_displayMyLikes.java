@@ -11,28 +11,38 @@ import java.net.URL;
 import java.sql.ResultSet;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 import java.util.ResourceBundle;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javafx.event.ActionEvent;
+import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.geometry.Orientation;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
+import javafx.scene.control.ButtonType;
 import javafx.scene.control.Label;
 import javafx.scene.control.Separator;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.effect.Effect;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
+import javafx.scene.input.MouseDragEvent;
+import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.GridPane;
 import javafx.scene.paint.Color;
 import javafx.scene.text.Font;
 import javafx.stage.Stage;
+import javax.swing.text.html.CSS;
+import static javax.swing.text.html.CSS.Attribute.PADDING_BOTTOM;
 import mysoulmates.entities.Product;
 import mysoulmates.entities.Session;
 import mysoulmates.entities.User;
@@ -51,9 +61,16 @@ public class Controller_displayMyLikes implements Initializable {
      */
  
 @FXML
-private GridPane glview;
+    private GridPane glview;
+
 @FXML
 private JFXButton gotowishlist;
+
+    @FXML
+    private ResourceBundle resources;
+        @FXML
+    private URL location;
+        
 @Override
     public void initialize(URL url, ResourceBundle rb) {
         
@@ -90,57 +107,90 @@ private JFXButton gotowishlist;
            List<User>likedList = new ArrayList<>();
             ResultSet rs;
             rs=Controller_Client.DisplayLikes(u); 
+            int count = 0;
+            int max= 9;
         int i = 0;
         int j = 0;
+        int y;
 
+        
+       y=0;
             while(rs.next())
 {
-                    AnchorPane ap = new AnchorPane();
-               ap.setPrefWidth(150);
-                ap.setPrefHeight(150);
+    count++;
+    y+=80;
+                 Separator separatorh = new Separator(Orientation.HORIZONTAL);
+                 Separator separatorv = new Separator(Orientation.VERTICAL);
+                 AnchorPane ap = new AnchorPane();
+                ap.setPrefWidth(300);
+                ap.setPrefHeight(400);
                 ap.setStyle(" -fx-background-color:transparent");
-                ap.setStyle("-fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.8), 10, 0, 0, 0)");
-                ImageView im ;
+               // ap.setStyle("-fx-effect: dropshadow(three-pass-box, rgba(53,49,112,0.21), 10, 0, 0, 0)");
+                ap.setLayoutX(glview.getLayoutX()-(glview.getLayoutX()/3));
+                ap.setLayoutY(glview.getLayoutY()-(glview.getLayoutY()/3));
+                ImageView im =null;
 if (getClass().getResourceAsStream("/mysoulmates/images/" + rs.getString("image"))== null)
 {
-                     im = new ImageView(new Image(getClass().getResourceAsStream("/mysoulmates/images/profile.png")));
+    if (rs.getString("gender").equals("male"))
+    {
+                             im = new ImageView(new Image(getClass().getResourceAsStream("/mysoulmates/images/profile.png")));
+                     im.setLayoutY(ap.getLayoutY()-10);
+                     im.setLayoutX(ap.getLayoutX());
+
+    }
+    else
+    {
+                     im = new ImageView(new Image(getClass().getResourceAsStream("/mysoulmates/images/profile2.png")));
+                     im.setLayoutY(ap.getLayoutY()-10);
+                     im.setLayoutX(ap.getLayoutX());
+
+    }
 
 }
 else
 {
                      im = new ImageView(new Image(getClass().getResourceAsStream("/mysoulmates/images/" + rs.getString("image"))));
+                     im.setLayoutY(ap.getLayoutY()-10);
+                     im.setLayoutX(ap.getLayoutX());
 
 }
-                im.setFitWidth(143);
-                im.setFitHeight(143);
+                im.setFitWidth(150);
+                im.setFitHeight(150);
 
-                Separator separator2 = new Separator();
-                separator2.setOrientation(Orientation.HORIZONTAL);
-                separator2.prefHeight(200);
-                separator2.setPrefWidth(365);
-                separator2.setLayoutY(208);
-                separator2.setStyle(" -fx-border-color: red");
-                separator2.setStyle(" -fx-border-width: 1");
-
-                Button bouton = new Button("Learn More");
-                bouton.setFont(new Font("Cambria", 20));
-                bouton.setTextFill(Color.web("#0076a3"));
-                bouton.setLayoutY(204);
-                Label l = new Label("Name : "+rs.getString("fname")+" "+rs.getString("lname"));
-                l.setLayoutX(272);
-                l.setLayoutY(211);
+                Label l = new Label("Full Name :"+rs.getString("fname")+" "+rs.getString("lname"));
+               
+                l.setLayoutX(im.getLayoutX());
+                l.setLayoutY(im.getLayoutY()-25);
                 l.setFont(new Font("Cambria", 20));
                 l.setTextFill(Color.web("#0076a3"));
-
-                ap.getChildren().add(im);
-                ap.getChildren().add(separator2);
-                ap.getChildren().add(bouton);
                 ap.getChildren().add(l);
+                ap.getChildren().add(im);
+                im.setOnMouseClicked(new EventHandler<MouseEvent>() {
+        @Override
+        public void handle(MouseEvent event) {
+            Alert alert = new Alert(Alert.AlertType.INFORMATION);
+            alert.setTitle("Visit meber profile");
+            alert.setHeaderText("Do you want to visit his/her profile ?");
+            alert.setContentText("Choose your option.");
+            ButtonType buttonTypeOne = new ButtonType("Yes");
+            ButtonType buttonTypeTwo = new ButtonType("No");
+            alert.getButtonTypes().setAll(buttonTypeOne, buttonTypeTwo);
+            Optional<ButtonType> result = alert.showAndWait();
+            if (result.get() == buttonTypeOne)
+            {
+                System.out.println("choosed to visit his profile");
+            }
+            else
+            {
+                System.out.println("choosed to not visit the profile");
+            }
+                }
+                });
+                        glview.add(ap, i, j);
                 
-                glview.add(ap, i, j);
 
                 i++;
-                if (i == 2) {
+                if (i == 3) {
                     j++;
                     i = 0;
                 }

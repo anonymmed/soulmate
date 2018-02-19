@@ -18,6 +18,9 @@ import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.image.ImageView;
 import javafx.stage.Stage;
 import mysoulmates.entities.Product;
+import mysoulmates.entities.Session;
+import mysoulmates.entities.User;
+import mysoulmates.services.UserService;
 import mysoulmates.services.service_DisplayWishlist;
 
 /**
@@ -41,8 +44,6 @@ public class ControllerDisplayWishList implements Initializable {
       
       
       //table collumns
-         @FXML
-    private TableColumn<Product,JFXButton> action;
     @FXML
     private TableColumn<Product,ImageView>logo;
     @FXML
@@ -53,27 +54,41 @@ public class ControllerDisplayWishList implements Initializable {
 
     @FXML
     private TableColumn<Product, Integer> price;
+    
+    private String name;
+    private User currentUser;
+    private int sessionId;
+        UserService us;
+        
     @Override
+    
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
-
 
        // tableview.getItems().addAll(new Produit("med", "abdh", 15,new ImageView("/mysoulmates/img/fb.png")));
  
 
         //columns initialization
-        action.setCellValueFactory(new PropertyValueFactory<>("delete"));
-                
+         us = new UserService();
+
+                     sessionId = Session.getCurrentSession();
+         currentUser = new User();
+
+                        currentUser=us.findById(sessionId);
+
         logo.setCellValueFactory(new PropertyValueFactory<>("productImg"));
         product_Name.setCellValueFactory(new PropertyValueFactory<>("nom"));
        product_Description.setCellValueFactory(new PropertyValueFactory<>("description"));
        price.setCellValueFactory(new PropertyValueFactory<>("prix"));
         //collumns filling test
-
-            tableview.setItems(Controller_Wishlist.displayWishListe("mohamed.abdelhafidh@esprit.tn"));
-
-
-           
+            tableview.setItems(Controller_Wishlist.displayWishListe(currentUser.getEmail()));
+/*            if (tableview.getSelectionModel().getSelectedItem().getNom()!= null)
+            {
+            name=(tableview.getSelectionModel().getSelectedItem().getNom());
+            }
+            else
+                name="";
+*/
 
  //tableview.getColumns().addAll(product_Name,product_Description,price);
     }
@@ -88,7 +103,19 @@ public class ControllerDisplayWishList implements Initializable {
 
             s.ConfirmWishList(ConfirmWishlist);
           
-        }    
+        }
+        @FXML
+        public void deleteItem()
+        {
+                        name=(tableview.getSelectionModel().getSelectedItem().getNom());
+                        service_DisplayWishlist.deleteItem(name);
+                        tableview.getSelectionModel().clearSelection(sessionId, logo);
+                        tableview.getSelectionModel().clearSelection(sessionId, price);
+                        tableview.getSelectionModel().clearSelection(sessionId, product_Description);
+                        tableview.getSelectionModel().clearSelection(sessionId, product_Name);
+
+                        Controller_Wishlist.displayWishListe(currentUser.getEmail());
+        }
     
 
 }

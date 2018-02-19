@@ -8,6 +8,11 @@ package mysoulmates.services;
 import com.jfoenix.controls.JFXButton;
 import com.jfoenix.controls.JFXListView;
 import java.io.IOException;
+import java.sql.PreparedStatement;
+import java.sql.SQLException;
+import java.sql.Statement;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXMLLoader;
@@ -24,6 +29,8 @@ import javafx.util.Callback;
 import mysoulmates.controllers.Controller_Wishlist;
 import mysoulmates.entities.User;
 import mysoulmates.entities.Product;
+import mysoulmates.entities.Session;
+import mysoulmates.utils.Bd;
 
 /**
  *
@@ -31,7 +38,8 @@ import mysoulmates.entities.Product;
  */
 public class service_DisplayWishlist {
     
-    
+        static Bd bd = Bd.getInstance();
+
     
     public static void DisplayWishList(JFXListView<String> ProductDisplayList,User c)
     {
@@ -89,7 +97,22 @@ public class service_DisplayWishlist {
                 stage.show();
 }
     
+public static void deleteItem(String name)
+{
+  String req = "delete from wishlist where prod_name = ?";
+            try {
+                PreparedStatement statement  = bd.getConnection().prepareStatement(req);
+                statement.setString(1, name);
+                statement.executeUpdate();
+                int currentSession = Session.getCurrentSession();
+                UserService us = new UserService();
+                User u = new User();
+                u=us.findById(currentSession);
+                
+            } catch (SQLException ex) {
+                Logger.getLogger(service_DisplayWishlist.class.getName()).log(Level.SEVERE, null, ex);
+            }
     
     
-
+}    
 }

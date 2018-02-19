@@ -6,8 +6,6 @@
 package mysoulmates.controllers;
 
 import java.util.ArrayList;
-import java.util.List;
-import java.util.Observable;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import mysoulmates.entities.User;

@@ -3,9 +3,15 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
+            <file>file:/C:/Users/COMPUTER/Documents/NetBeansProjects/mysoulmates/nourchen/src/mysoulmates/controllers/ControllerDisplayWishList.java</file>
+            <file>file:/C:/Users/COMPUTER/Documents/NetBeansProjects/mysoulmates/nourchen/src/mysoulmates/Views/displayMyLikes.fxml</file>
             <file>file:/C:/Users/COMPUTER/Documents/NetBeansProjects/mysoulmates/nourchen/src/mysoulmates/controllers/Controller_Client.java</file>
             <file>file:/C:/Users/COMPUTER/Documents/NetBeansProjects/mysoulmates/nourchen/src/mysoulmates/controllers/Controller_displayMyLikes.java</file>
+            <file>file:/C:/Users/COMPUTER/Documents/NetBeansProjects/mysoulmates/nourchen/src/mysoulmates/entities/Session.java</file>
+            <file>file:/C:/Users/COMPUTER/Documents/NetBeansProjects/mysoulmates/nourchen/src/mysoulmates/services/service_DisplayWishlist.java</file>
             <file>file:/C:/Users/COMPUTER/Documents/NetBeansProjects/mysoulmates/nourchen/src/mysoulmates/controllers/ProfilController.java</file>
+            <file>file:/C:/Users/COMPUTER/Documents/NetBeansProjects/mysoulmates/nourchen/src/mysoulmates/controllers/HomeController.java</file>
+            <file>file:/C:/Users/COMPUTER/Documents/NetBeansProjects/mysoulmates/nourchen/src/mysoulmates/controllers/Controller_Wishlist.java</file>
             <file>file:/C:/Users/COMPUTER/Documents/NetBeansProjects/mysoulmates/nourchen/src/mysoulmates/services/UserService.java</file>
         </group>
     </open-files>

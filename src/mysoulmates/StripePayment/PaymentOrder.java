@@ -152,6 +152,7 @@ chargeParams.put("currency", "usd");
 chargeParams.put("description", "Charge from "+email);
 chargeParams.put("customer", createClient(email, name, cc, exp_y, exp_m, cvv, address, city, state, zip, country).getId());
             charge =Charge.create(chargeParams);
+            System.out.println(charge);
         return charge;
     }
         public  Token createToken(String name,String cc,String exp_y,String exp_m,String cvv,String address,String city,String state,String zip,String country) throws AuthenticationException, InvalidRequestException, APIConnectionException, CardException, APIException 

@@ -17,7 +17,7 @@ public class Wishlist {
     private int prix;
     private String email_client;
     private List<Product> listeWish;
-    private JFXButton delete;
+    private JFXButton delete = new JFXButton("delete");
 
     public JFXButton getDelete() {
         return delete;
