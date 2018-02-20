@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import javafx.scene.control.Tab?>
+<?import javafx.scene.control.TabPane?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.effect.DropShadow?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<TabPane xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1" fx:controller="mysoulmates.controllers.ControllerDisplayWishList">
+   <tabs>
+      <Tab closable="false" text="Display WishList">
+         <content>
+            <AnchorPane id="AnchorPane" prefHeight="800.0" prefWidth="1100.0" style="-fx-background-radius: 5px; -fx-background-image: url('file:C:/Users/COMPUTER/Documents/NetBeansProjects/mysoulmates/src/mysoulmates/psd/background.jpg');">
+               <children>
+                  <TableView fx:id="tableview" layoutX="227.0" layoutY="253.0" prefHeight="322.0" prefWidth="740.0">
+                    <columns>
+                        <TableColumn fx:id="logo" prefWidth="149.0" text="Logo" />
+                      <TableColumn fx:id="product_Name" prefWidth="177.0" text="Name" />
+                        <TableColumn fx:id="product_Description" minWidth="0.0" prefWidth="255.0" text="Description" />
+                        <TableColumn fx:id="price" minWidth="0.0" prefWidth="120.0" text="Price" />
+                    </columns>
+                     <effect>
+                        <DropShadow color="#d038af" />
+                     </effect>
+                  </TableView>
+                  <JFXButton fx:id="ConfirmWishlist" contentDisplay="CENTER" layoutX="809.0" layoutY="605.0" onAction="#ConfirmWishList" prefHeight="32.0" prefWidth="158.0" style="-fx-background-color: #FFA07A; -fx-background-radius: 5px;" text="Proceed to checkout" />
+                  <JFXButton fx:id="deletebutton" layoutX="808.0" layoutY="665.0" onAction="#deleteItem" prefHeight="31.0" prefWidth="159.0" style="-fx-background-color: #FFA07A; -fx-background-radius: 5px;" text="Delete selected item" />
+               </children>
+            </AnchorPane>
+         </content>
+      </Tab>
+   </tabs>
+</TabPane>
