@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.PasswordField?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.paint.LinearGradient?>
+<?import javafx.scene.paint.Stop?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane id="AnchorPane" prefHeight="768.0" prefWidth="1024.0" xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1" fx:controller="mysoulmates.controllers.ProfilController">
+   <children>
+      <ImageView fitHeight="768.0" fitWidth="1024.0" layoutX="-5.0" layoutY="-2.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../Images/home.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="113.0" fitWidth="105.0" layoutX="605.0" layoutY="54.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../Images/Transparent_Hearts_Decorative_Element_1.png" />
+         </image>
+      </ImageView>
+      <Text fill="#ebebeb" layoutX="186.0" layoutY="42.0" strokeType="OUTSIDE" strokeWidth="0.0" text="If there's a force strong enough to unite the skies and earth&#10; for a blinding moment , I cannot doubt the exitence &#10;of a force which brings soulmates together..." textAlignment="CENTER" wrappingWidth="504.61781311035156">
+         <font>
+            <Font name="Century Schoolbook" size="17.0" />
+         </font>
+      </Text>
+      <AnchorPane layoutX="353.0" layoutY="230.0" opacity="0.59" prefHeight="439.0" prefWidth="609.0" style="-fx-background-color: pink;">
+         <children>
+            <Text fill="WHITE" layoutX="90.0" layoutY="402.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Sign OUT ?">
+               <font>
+                  <Font name="Century Schoolbook" size="14.0" />
+               </font>
+            </Text>
+            <TextField fx:id="firstname" alignment="CENTER" layoutX="366.0" layoutY="69.0" prefHeight="26.0" prefWidth="218.0" promptText="First name" style="-fx-background-color: white; -fx-border-color: white;">
+               <opaqueInsets>
+                  <Insets />
+               </opaqueInsets>
+            </TextField>
+            <TextField fx:id="lastname" alignment="CENTER" layoutX="366.0" layoutY="105.0" prefHeight="26.0" prefWidth="218.0" promptText="Last name" style="-fx-background-color: white;" />
+            <TextField fx:id="email" alignment="CENTER" layoutX="366.0" layoutY="139.0" prefHeight="31.0" prefWidth="218.0" promptText="E_mail" style="-fx-background-color: white;" />
+            <TextField fx:id="age" alignment="CENTER" layoutX="367.0" layoutY="172.0" prefHeight="31.0" prefWidth="218.0" promptText="Age" />
+            <PasswordField fx:id="password" alignment="CENTER" layoutX="366.0" layoutY="204.0" prefHeight="25.0" prefWidth="218.0" promptText="Password" />
+            <TextField fx:id="username" alignment="CENTER" layoutX="366.0" layoutY="236.0" prefHeight="31.0" prefWidth="218.0" promptText="Username" style="-fx-background-color: white;" />
+            <TextField fx:id="phonenumber" alignment="CENTER" layoutX="367.0" layoutY="268.0" prefHeight="25.0" prefWidth="218.0" promptText="Phone Number" />
+            <TextField fx:id="address" alignment="CENTER" layoutX="367.0" layoutY="301.0" prefHeight="31.0" prefWidth="218.0" promptText="Address" style="-fx-background-color: white;" />
+            <Text fill="#fcfcfc" layoutX="449.0" layoutY="403.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Update">
+               <font>
+                  <Font name="Century Schoolbook" size="16.0" />
+               </font>
+            </Text>
+            <Button fx:id="updateBtn" layoutX="405.0" layoutY="383.0" mnemonicParsing="false" onAction="#update" opacity="0.0" prefHeight="25.0" prefWidth="152.0" text="Button" />
+            <Label layoutX="17.0" layoutY="17.0" text="Click to view your likes">
+               <font>
+                  <Font name="Century" size="22.0" />
+               </font>
+               <textFill>
+                  <LinearGradient cycleMethod="REFLECT" endX="0.8737864077669903" endY="0.3058252427184466" startX="0.4368932038834952" startY="0.5873786407766991">
+                     <stops>
+                        <Stop color="#60046e" />
+                        <Stop color="#53a4a6" offset="1.0" />
+                     </stops>
+                  </LinearGradient>
+               </textFill></Label>
+            <ImageView fx:id="mylikes" fitHeight="113.0" fitWidth="149.0" layoutX="48.0" layoutY="42.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../images/heart.png" />
+               </image>
+            </ImageView>
+            <Label layoutX="13.0" layoutY="155.0" text="Change profile picture">
+               <font>
+                  <Font name="Century" size="22.0" />
+               </font>
+               <textFill>
+                  <LinearGradient cycleMethod="REFLECT" endX="0.8737864077669903" endY="0.3058252427184466" startX="0.4368932038834952" startY="0.5873786407766991">
+                     <stops>
+                        <Stop color="#60046e" />
+                        <Stop color="#53a4a6" offset="1.0" />
+                     </stops>
+                  </LinearGradient>
+               </textFill>
+            </Label>
+            <ImageView fx:id="imgview" fitHeight="132.0" fitWidth="228.0" layoutX="61.0" layoutY="186.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../images/profile.png" />
+               </image>
+            </ImageView>
+            <Button fx:id="signoutBtn" layoutX="51.0" layoutY="383.0" mnemonicParsing="false" onAction="#signout" opacity="0.0" prefHeight="25.0" prefWidth="152.0" text="Button" />
+            <Button fx:id="image" layoutX="4.0" layoutY="152.0" mnemonicParsing="false" onAction="#getImage" opacity="0.0" prefHeight="187.0" prefWidth="273.0" text="Button" />
+            <JFXButton fx:id="viewlikes" layoutX="19.0" layoutY="17.0" onAction="#gotomylikes" opacity="0.0" prefHeight="132.0" prefWidth="238.0" text="Button" />
+         </children>
+      </AnchorPane>
+      <JFXButton fx:id="gotowishlist" layoutY="489.0" onAction="#GoToWishList" opacity="0.0" prefHeight="83.0" prefWidth="230.0" />
+   </children>
+</AnchorPane>
