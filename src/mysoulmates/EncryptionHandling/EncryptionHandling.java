@@ -17,6 +17,11 @@ import sun.misc.BASE64Encoder;
  */
 public class EncryptionHandling {
     private static final String ALGORITHM = "AES";
+    private String keyword;
+
+    public EncryptionHandling(String keyword) {
+        this.keyword = keyword;
+    }
 private static final byte[] keyValue = 
     new byte[] { 'T', 'h', 'i', 's', 'I', 's', 'A', 'S', 'e', 'c', 'r', 'e', 't', 'K', 'e', 'y' };
 

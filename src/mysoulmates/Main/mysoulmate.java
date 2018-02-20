@@ -18,6 +18,8 @@ import javafx.scene.control.Button;
 import javafx.scene.layout.StackPane;
 import javafx.stage.Stage;
 import mysoulmates.EncryptionHandling.EncryptionHandling;
+import mysoulmates.controllers.Controller_Client;
+import mysoulmates.entities.User;
 
 /**
  *
@@ -41,13 +43,9 @@ public class mysoulmate extends Application {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        EncryptionHandling enc = new EncryptionHandling();
-        try {
-            enc.encrypt("V4Vendetta");
-        } catch (Exception ex) {
-            System.out.println("error : "+ex.getMessage());
-        }
         launch(args);
+  //      Controller_Client.createToken("mohamed.abdelhafidh@esprit.tn");
+    //    System.out.println(Controller_Client.checkToken("2EqXqRxKYK4Qms4L1XpN1AXhQBSKNQ5y1agusTQIOh646XMAsO3CjOODxdLQ8z5p","mohamed.abdelhafidh@esprit.tn"));
     }
     
 }
