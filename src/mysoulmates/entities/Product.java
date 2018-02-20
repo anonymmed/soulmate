@@ -17,15 +17,8 @@ public class Product {
     private String description;
     private int prix;
     private ImageView productImg;
-    private JFXButton Delete;
 
-    public JFXButton getDelete() {
-        return Delete;
-    }
 
-    public void setDelete(JFXButton Delete) {
-        this.Delete = Delete;
-    }
 
     public ImageView getProductImg() {
         return productImg;

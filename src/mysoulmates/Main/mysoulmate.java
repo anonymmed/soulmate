@@ -6,6 +6,8 @@
 package mysoulmates.Main;
 
 import java.io.IOException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javafx.application.Application;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
@@ -15,6 +17,7 @@ import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.layout.StackPane;
 import javafx.stage.Stage;
+import mysoulmates.EncryptionHandling.EncryptionHandling;
 
 /**
  *
@@ -38,6 +41,12 @@ public class mysoulmate extends Application {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
+        EncryptionHandling enc = new EncryptionHandling();
+        try {
+            enc.encrypt("V4Vendetta");
+        } catch (Exception ex) {
+            System.out.println("error : "+ex.getMessage());
+        }
         launch(args);
     }
     
