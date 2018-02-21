@@ -130,7 +130,7 @@
 }
 .cancel-button{
     -fx-animated: true;
-    -fx-background-color: #DDDDDD;
+    -fx-background-color: red;
     -fx-font-size:16px;
     -fx-font-weight:bold ;
     -fx-pref-width: 100px;
