@@ -10,9 +10,12 @@ import mysoulmates.entities.User;
 import mysoulmates.services.UserService;
 import java.net.InetAddress;
 import java.net.UnknownHostException;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import mysoulmates.EncryptionHandling.EncryptionHandling;
+import mysoulmates.services.service_Command;
 import sun.font.StrikeCache;
 
 /**
@@ -76,6 +79,15 @@ public class Controller_Client {
             }
                 System.out.println(encryption);
             return check;
+            }
+            
+            
+            
+            public static List<User> displayMatching(User u1,User u2)
+            {
+                List<User>usl  = new ArrayList<>();
+               usl=UserService.displayMatching(u2, u2);
+               return  usl;
             }
 
                 

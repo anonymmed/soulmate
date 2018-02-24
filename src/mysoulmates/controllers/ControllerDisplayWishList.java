@@ -9,14 +9,22 @@ import com.jfoenix.controls.JFXButton;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javafx.animation.FadeTransition;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
-import javafx.scene.control.Label;
+import javafx.scene.Node;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.image.ImageView;
-import javafx.stage.Stage;
+import javafx.scene.layout.AnchorPane;
+import javafx.util.Duration;
 import mysoulmates.entities.Product;
 import mysoulmates.entities.Session;
 import mysoulmates.entities.User;
@@ -30,12 +38,6 @@ import mysoulmates.services.service_DisplayWishlist;
  */
 public class ControllerDisplayWishList implements Initializable {
 
-    /**
-     * Initializes the controller class.
-     */
- 
-   @FXML
-    private Label labelwishlist;  
    @FXML
    private JFXButton ConfirmWishlist;
    
@@ -55,10 +57,15 @@ public class ControllerDisplayWishList implements Initializable {
     @FXML
     private TableColumn<Product, Integer> price;
     
+    @FXML
+    private AnchorPane holderPane;
+    
     private String name;
     private User currentUser;
     private int sessionId;
         UserService us;
+    @FXML
+    private JFXButton deletebutton;
         
     @Override
     
@@ -77,12 +84,19 @@ public class ControllerDisplayWishList implements Initializable {
                         currentUser=us.findById(sessionId);
 
         logo.setCellValueFactory(new PropertyValueFactory<>("productImg"));
+        
         product_Name.setCellValueFactory(new PropertyValueFactory<>("nom"));
        product_Description.setCellValueFactory(new PropertyValueFactory<>("description"));
        price.setCellValueFactory(new PropertyValueFactory<>("prix"));
         //collumns filling test
+        ObservableList<Product> pob = FXCollections.observableArrayList();
+        
+        pob=Controller_Wishlist.displayWishListe(currentUser.getEmail());
             tableview.setItems(Controller_Wishlist.displayWishListe(currentUser.getEmail()));
-/*            if (tableview.getSelectionModel().getSelectedItem().getNom()!= null)
+                    tableview.getStylesheets().add(getClass().getResource("reaper.css").toExternalForm());
+
+            
+            /*            if (tableview.getSelectionModel().getSelectedItem().getNom()!= null)
             {
             name=(tableview.getSelectionModel().getSelectedItem().getNom());
             }
@@ -93,17 +107,7 @@ public class ControllerDisplayWishList implements Initializable {
  //tableview.getColumns().addAll(product_Name,product_Description,price);
     }
     
-    
-    
-    @FXML
-        public  void ConfirmWishList() throws IOException
-        {
-        ((Stage) ConfirmWishlist.getScene().getWindow()).close();
-            service_DisplayWishlist s = new service_DisplayWishlist();
-
-            s.ConfirmWishList(ConfirmWishlist);
-          
-        }
+       
         @FXML
         public void deleteItem()
         {
@@ -114,8 +118,52 @@ public class ControllerDisplayWishList implements Initializable {
                         tableview.getSelectionModel().clearSelection(sessionId, product_Description);
                         tableview.getSelectionModel().clearSelection(sessionId, product_Name);
 
-                        Controller_Wishlist.displayWishListe(currentUser.getEmail());
+       try {
+         setNode(new FXMLLoader().load(getClass().getResource("/mysoulmates/Views/DisplayWishList.fxml")));
+       } catch (IOException ex) {
+           Logger.getLogger(ControllerDisplayWishList.class.getName()).log(Level.SEVERE, null, ex);
+       }
         }
+        
+        
+        
+        
+        @FXML 
+        private void switchhome()
+        {
+       try {
+           setNode(new FXMLLoader().load(getClass().getResource("/mysoulmates/Views/welcome.fxml")));
+       } catch (IOException ex) {
+           Logger.getLogger(ControllerDisplayWishList.class.getName()).log(Level.SEVERE, null, ex);
+       }
+        }
+        
+        
+        
+        
+                    private void setNode(Node node)
+        {
+        holderPane.getChildren().clear();
+        holderPane.getChildren().add((Node) node);
+
+        FadeTransition ft = new FadeTransition(Duration.millis(1500));
+        ft.setNode(node);
+        ft.setFromValue(0.1);
+        ft.setToValue(1);
+        ft.setCycleCount(1);
+        ft.setAutoReverse(false);
+        ft.play();
+    }
+
+    @FXML
+    private void ConfirmWishlist(ActionEvent event) {
+       try {
+           setNode(new FXMLLoader().load(getClass().getResource("/mysoulmates/Views/InforWishList.fxml")));
+       } catch (IOException ex) {
+           Logger.getLogger(ControllerDisplayWishList.class.getName()).log(Level.SEVERE, null, ex);
+       }
+
+    }
     
 
 }
