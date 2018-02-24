@@ -69,7 +69,7 @@ public class homeAdminController implements Initializable {
             VBox sidePane = FXMLLoader.load(getClass().getResource("/mysoulmates/Views/menuAdmin.fxml"));
             AnchorPane welcome = FXMLLoader.load(getClass().getResource("/mysoulmates/Views/welcomeAdmin.fxml"));
             AnchorPane members = FXMLLoader.load(getClass().getResource("/mysoulmates/Views/memberAdmin.fxml"));
-            AnchorPane wedding = FXMLLoader.load(getClass().getResource("/mysoulmates/Views/weddingAdmin.fxml"));
+//            AnchorPane wedding = FXMLLoader.load(getClass().getResource("/mysoulmates/Views/weddingAdmin.fxml"));
             AnchorPane complaints = FXMLLoader.load(getClass().getResource("/mysoulmates/Views/complaintsAdmin.fxml"));
             AnchorPane events = FXMLLoader.load(getClass().getResource("/mysoulmates/Views/eventAdmin.fxml"));
             AnchorPane quizzs = FXMLLoader.load(getClass().getResource("/mysoulmates/Views/quizzAdmin.fxml"));
@@ -91,7 +91,13 @@ public class homeAdminController implements Initializable {
                                 break;
                             case "weddingMenu":
                                 drawer.close();
-                                setNode(wedding);
+                        {
+                            try {
+                                setNode( FXMLLoader.load(getClass().getResource("/mysoulmates/Views/weddingAdmin.fxml")));
+                            } catch (IOException ex) {
+                                Logger.getLogger(homeAdminController.class.getName()).log(Level.SEVERE, null, ex);
+                            }
+                        }
                                 break;
                             case "complaintMenu":
                                 drawer.close();
@@ -104,7 +110,7 @@ public class homeAdminController implements Initializable {
 
                             case "quizzMenu":
                                 drawer.close();
-                                setNode(events);
+                                setNode(quizzs);
                                 break;
 
                             case "ordersMenu":

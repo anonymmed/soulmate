@@ -42,6 +42,8 @@ public class HomeController implements Initializable {
     private JFXButton homeBtn;
     @FXML
     private JFXButton orderBtn;
+    @FXML
+    private JFXButton quizzBtn;
 
     /**
      * Initializes the controller class.
@@ -52,12 +54,13 @@ public class HomeController implements Initializable {
          // TODO
          // TODO
          profile = FXMLLoader.load(getClass().getResource("/mysoulmates/Views/profile.fxml"));
+        wedding = FXMLLoader.load(getClass().getResource("/mysoulmates/Views/product.fxml"));
      } catch (IOException ex) {
          Logger.getLogger(HomeController.class.getName()).log(Level.SEVERE, null, ex);
      }
         
     }    
-private void setNode(Node node) {
+public void setNode(Node node) {
         holderPane.getChildren().clear();
         holderPane.getChildren().add((Node) node);
 
@@ -87,10 +90,28 @@ private void setNode(Node node) {
 
     @FXML
     private void switchEvent(ActionEvent event) {
+         try {
+         setNode(new FXMLLoader().load(getClass().getResource("/mysoulmates/Views/viewEventMember.fxml")));
+     } catch (IOException ex) {
+         Logger.getLogger(HomeController.class.getName()).log(Level.SEVERE, null, ex);
+     }
     }
 
     @FXML
     private void switchWedding(ActionEvent event) {
+     try {
+         setNode(new FXMLLoader().load(getClass().getResource("/mysoulmates/Views/product.fxml")));
+     } catch (IOException ex) {
+         Logger.getLogger(HomeController.class.getName()).log(Level.SEVERE, null, ex);
+     }
+    }
+    public void productInfo()
+    {
+        try {
+         setNode(new FXMLLoader().load(getClass().getResource("/mysoulmates/Views/infoProduct.fxml")));
+     } catch (IOException ex) {
+         Logger.getLogger(HomeController.class.getName()).log(Level.SEVERE, null, ex);
+     }
     }
 
     @FXML
@@ -99,6 +120,20 @@ private void setNode(Node node) {
 
     @FXML
     private void switchChat(ActionEvent event) {
+         try {
+         setNode(new FXMLLoader().load(getClass().getResource("/mysoulmates/Views/ComplaintMember.fxml")));
+     } catch (IOException ex) {
+         Logger.getLogger(HomeController.class.getName()).log(Level.SEVERE, null, ex);
+     }
+    }
+
+    @FXML
+    private void switchQuizz(ActionEvent event) {
+         try {
+         setNode(new FXMLLoader().load(getClass().getResource("/mysoulmates/Views/quizzMember.fxml")));
+     } catch (IOException ex) {
+         Logger.getLogger(HomeController.class.getName()).log(Level.SEVERE, null, ex);
+     }
     }
    
 }

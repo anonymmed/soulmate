@@ -5,6 +5,7 @@
 <?import com.jfoenix.controls.JFXTabPane?>
 <?import com.jfoenix.controls.JFXTextArea?>
 <?import com.jfoenix.controls.JFXTextField?>
+<?import com.lynden.gmapsfx.GoogleMapView?>
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.Separator?>
@@ -22,7 +23,6 @@
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.RowConstraints?>
 <?import javafx.scene.layout.VBox?>
-
 
 <AnchorPane id="AnchorPane" prefHeight="684.0" prefWidth="1105.0" xmlns="http://javafx.com/javafx/9.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="mysoulmates.controllers.WeddingAdminController">
    <children>
@@ -62,10 +62,16 @@
                                     <VBox layoutX="10.0" layoutY="10.0" prefHeight="42.0" prefWidth="491.0">
                                        <children>
                                           <Label prefHeight="20.0" prefWidth="112.0" style="-fx-text-fill: #868282;" text="Address" />
+                                          <HBox prefHeight="100.0" prefWidth="200.0" />
+                                          <JFXTextField fx:id="fromTextField" promptText="from" />
+                                          <JFXTextField fx:id="recherche" />
+                                          <JFXTextField fx:id="toTextField" promptText="Product Address" />
                                        </children>
                                     </VBox>
-                                    <JFXTextField fx:id="address" promptText="Product Address" />
-                                    <VBox layoutX="10.0" layoutY="92.0" prefHeight="292.0" prefWidth="491.0" />
+                                    <VBox layoutX="10.0" layoutY="92.0" prefHeight="292.0" prefWidth="491.0">
+                                       <children>
+                                          <GoogleMapView fx:id="mapView" prefHeight="257.0" prefWidth="491.0" />
+                                       </children></VBox>
                                     <Separator prefWidth="200.0" />
                                     <HBox alignment="CENTER" nodeOrientation="LEFT_TO_RIGHT" prefHeight="77.0" prefWidth="511.0" spacing="20.0">
                                        <children>
@@ -85,6 +91,7 @@
                               <Separator layoutX="482.0" layoutY="14.0" orientation="VERTICAL" prefHeight="519.0" prefWidth="0.0" />
                            </children>
                         </AnchorPane>
+                        <JFXTextField fx:id="addresse" layoutX="453.0" layoutY="25.0" />
                      </children>
                   </AnchorPane>
                </content>

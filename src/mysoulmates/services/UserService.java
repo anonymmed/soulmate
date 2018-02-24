@@ -83,7 +83,19 @@ public class UserService {
         }
         return u;
     }
-    
+    public String findEmail(int id ) throws SQLException
+    {
+        String req="select email from user where id=?";
+                String email=null;
+                PreparedStatement ste  = ds.getConnection().prepareStatement(req);
+                ste.setInt(1, id);
+                ResultSet rs =ste.executeQuery();
+                while (rs.next())
+                {
+                    email=rs.getString(email);
+                }
+                return email;
+    }    
        public static void Update(User u,int id) {
         try {
             String req = "UPDATE `user` SET `fname`=?,`lname`=?,`email`=?,`password`=?,`role`=?,`username`=?,`phoneNumber`=?,`gender`=?,`image`=?,`age`=?,`address`=?,`date_SU`=?,`nbr_like`=? WHERE `id`=?";
