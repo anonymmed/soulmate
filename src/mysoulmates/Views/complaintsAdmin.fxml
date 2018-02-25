@@ -1,0 +1,137 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import com.jfoenix.controls.JFXProgressBar?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TitledPane?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+
+<AnchorPane id="AnchorPane" prefHeight="684.0" prefWidth="1105.0" xmlns="http://javafx.com/javafx/9.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="mysoulmates.controllers.ComplaintsAdminController">
+   <children>
+      <AnchorPane layoutX="359.0" layoutY="23.0" prefHeight="646.0" prefWidth="734.0" styleClass="card-unpadded" stylesheets="@../Styles/styles.css">
+         <children>
+            <TitledPane animated="false" layoutX="3.0" layoutY="6.0" prefHeight="342.0" prefWidth="724.0" styleClass="blue-titledPane" stylesheets="@../Styles/styles.css" text="Treated Complaints">
+               <content>
+                  <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                     <children>
+                        <TableView fx:id="treatedComplaint" layoutX="13.0" layoutY="14.0" prefHeight="292.0" prefWidth="700.0">
+                           <columns>
+                              <TableColumn fx:id="emailColT" prefWidth="107.0" text="Email" />
+                              <TableColumn fx:id="dateColT" prefWidth="94.0" text="Date" />
+                              <TableColumn fx:id="subjectColT" prefWidth="118.33331298828125" text="Subject" />
+                              <TableColumn fx:id="contentColT" prefWidth="380.6666259765625" text="Subject" />
+                           </columns>
+                        </TableView>
+                     </children>
+                  </AnchorPane>
+               </content>
+            </TitledPane>
+            <TitledPane animated="false" layoutX="3.0" layoutY="360.0" prefHeight="274.0" prefWidth="724.0" styleClass="blue-titledPane" stylesheets="@../Styles/styles.css" text="Pending Complaints">
+               <content>
+                  <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="248.0" prefWidth="722.0">
+                     <children>
+                        <TableView fx:id="pendingTable" layoutX="247.0" layoutY="14.0" prefHeight="200.0" prefWidth="453.0">
+                           <columns>
+                              <TableColumn fx:id="emailColP" prefWidth="92.0" text="Email" />
+                              <TableColumn fx:id="dateColP" prefWidth="82.0" text="Date" />
+                              <TableColumn fx:id="subjectColP" prefWidth="91.0" text="Subjet" />
+                              <TableColumn fx:id="contentColP" prefWidth="187.0" text="Content" />
+                           </columns>
+                        </TableView>
+                        <AnchorPane layoutX="24.0" layoutY="11.0" prefHeight="200.0" prefWidth="215.0" styleClass="card-unpadded">
+                           <children>
+                              <VBox alignment="TOP_CENTER" layoutX="15.0" layoutY="14.0" prefHeight="64.0" prefWidth="181.0" spacing="10.0">
+                                 <children>
+                                    <JFXButton fx:id="updateBtn" onAction="#Reply" prefHeight="37.0" prefWidth="100.0" styleClass="blue-btn" stylesheets="@../Styles/styles.css" text="Reply" />
+                                 </children>
+                              </VBox>
+                              <JFXButton fx:id="acceptBtn" layoutX="50.0" layoutY="125.0" onAction="#Accept" ripplerFill="#0ff75e" styleClass="green-btn" stylesheets="@../Styles/styles.css" text="Accept" />
+                              <JFXButton fx:id="deleteBtn" layoutX="54.0" layoutY="68.0" onAction="#Delete" prefHeight="27.0" prefWidth="78.0" styleClass="cancel-button" stylesheets="@../Styles/styles.css" text="Delete" />
+                           </children>
+                        </AnchorPane>
+                     </children>
+                  </AnchorPane>
+               </content>
+            </TitledPane>
+         </children>
+      </AnchorPane>
+      <VBox layoutX="23.0" layoutY="23.0" prefHeight="274.0" prefWidth="320.0" style="-fx-background-color: #00A8FF;" styleClass="card-unpadded">
+         <children>
+            <HBox alignment="CENTER_LEFT" prefHeight="43.0" prefWidth="320.0" spacing="20.0" style="-fx-background-color: #00A0F3;">
+               <children>
+                  <ImageView fitHeight="20.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../../../../templates/hospital-fx-master/src/imgs/appoint.png" />
+                     </image>
+                  </ImageView>
+                  <Label prefHeight="20.0" prefWidth="233.0" style="-fx-font-weight: bold; -fx-text-fill: white; -fx-font-size: 17px;" text="Complaints Statistics" />
+               </children>
+               <padding>
+                  <Insets left="20.0" />
+               </padding>
+            </HBox>
+            <VBox prefHeight="62.0" prefWidth="320.0">
+               <children>
+                  <Label prefHeight="35.0" prefWidth="191.0" style="-fx-text-fill: white; -fx-font-size: 13px; -fx-font-weight: bold;" text="All Complaints">
+                     <padding>
+                        <Insets left="10.0" />
+                     </padding>
+                  </Label>
+                  <HBox alignment="CENTER_LEFT" prefHeight="37.0" prefWidth="100.0" spacing="20.0">
+                     <children>
+                        <JFXProgressBar progress="1.0" />
+                        <Label style="-fx-font-weight: bold; -fx-font-size: 15pt; -fx-text-fill: white;" text="123" />
+                     </children>
+                     <padding>
+                        <Insets left="10.0" />
+                     </padding>
+                  </HBox>
+               </children>
+            </VBox>
+            <VBox prefHeight="58.0" prefWidth="320.0">
+               <children>
+                  <Label prefHeight="35.0" prefWidth="181.0" style="-fx-text-fill: white; -fx-font-size: 13px; -fx-font-weight: bold;" text="Expired Appointments">
+                     <padding>
+                        <Insets left="10.0" />
+                     </padding>
+                  </Label>
+                  <HBox alignment="CENTER_LEFT" prefHeight="37.0" prefWidth="100.0" spacing="20.0">
+                     <children>
+                        <JFXProgressBar progress="0.43" />
+                        <Label style="-fx-font-weight: bold; -fx-font-size: 15pt; -fx-text-fill: white;" text="39" />
+                     </children>
+                     <padding>
+                        <Insets left="10.0" />
+                     </padding>
+                  </HBox>
+               </children>
+            </VBox>
+            <VBox prefHeight="65.0" prefWidth="320.0">
+               <children>
+                  <Label prefHeight="35.0" prefWidth="185.0" style="-fx-text-fill: white; -fx-font-size: 13px; -fx-font-weight: bold;" text="Pending Appointments">
+                     <padding>
+                        <Insets left="10.0" />
+                     </padding>
+                  </Label>
+                  <HBox alignment="CENTER_LEFT" prefHeight="37.0" prefWidth="100.0" spacing="20.0">
+                     <children>
+                        <JFXProgressBar progress="0.37" />
+                        <Label style="-fx-font-weight: bold; -fx-font-size: 15pt; -fx-text-fill: white;" text="45" />
+                     </children>
+                     <padding>
+                        <Insets left="10.0" />
+                     </padding>
+                  </HBox>
+               </children>
+            </VBox>
+         </children>
+      </VBox>
+   </children>
+</AnchorPane>

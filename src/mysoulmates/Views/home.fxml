@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane id="AnchorPane" prefHeight="650.0" prefWidth="1000.0" xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1" fx:controller="mysoulmates.controllers.HomeController">
+   <children>
+      <ImageView fitHeight="778.0" fitWidth="1343.0" layoutX="-1.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../Images/8.jpg" />
+         </image>
+      </ImageView>
+      <AnchorPane fx:id="holderPane" layoutX="245.0" layoutY="130.0" prefHeight="610.0" prefWidth="1090.0" />
+      <VBox layoutX="-4.0" layoutY="142.0" prefHeight="606.0" prefWidth="237.0">
+         <children>
+            <HBox alignment="TOP_RIGHT" prefHeight="75.0" prefWidth="219.0">
+               <children>
+                  <ImageView fitHeight="50.0" fitWidth="63.0" pickOnBounds="true" preserveRatio="true" />
+                  <JFXButton fx:id="homeBtn" alignment="CENTER" buttonType="RAISED" contentDisplay="CENTER" onAction="#switchHome" prefHeight="53.0" prefWidth="161.0" text="Home" textFill="#c3c0c0">
+                     <font>
+                        <Font name="Copperplate Gothic Light" size="22.0" />
+                     </font>
+                  </JFXButton>
+               </children>
+            </HBox>
+            <HBox alignment="TOP_RIGHT" prefHeight="75.0" prefWidth="219.0">
+               <children>
+                  <ImageView fitHeight="50.0" fitWidth="63.0" pickOnBounds="true" preserveRatio="true" />
+                  <JFXButton fx:id="profileBtn" alignment="CENTER" buttonType="RAISED" contentDisplay="CENTER" onAction="#switchProfile" prefHeight="53.0" prefWidth="161.0" text="Profile" textFill="#c3c0c0">
+                     <font>
+                        <Font name="Copperplate Gothic Light" size="22.0" />
+                     </font>
+                  </JFXButton>
+               </children>
+               <VBox.margin>
+                  <Insets bottom="2.0" />
+               </VBox.margin>
+            </HBox>
+            <HBox alignment="TOP_RIGHT" layoutX="10.0" layoutY="10.0" prefHeight="75.0" prefWidth="219.0">
+               <children>
+                  <ImageView fitHeight="50.0" fitWidth="63.0" pickOnBounds="true" preserveRatio="true" />
+                  <JFXButton fx:id="eventBtn" alignment="CENTER" buttonType="RAISED" contentDisplay="CENTER" onAction="#switchEvent" prefHeight="53.0" prefWidth="161.0" text="Events" textFill="#c3c0c0">
+                     <font>
+                        <Font name="Copperplate Gothic Light" size="22.0" />
+                     </font>
+                  </JFXButton>
+               </children>
+            </HBox>
+            <HBox alignment="TOP_RIGHT" layoutX="10.0" layoutY="87.0" prefHeight="75.0" prefWidth="219.0">
+               <children>
+                  <ImageView fitHeight="50.0" fitWidth="63.0" pickOnBounds="true" preserveRatio="true" />
+                  <JFXButton fx:id="weddingBtn" alignment="CENTER" buttonType="RAISED" contentDisplay="CENTER" onAction="#switchWedding" prefHeight="53.0" prefWidth="161.0" text="Wedding" textFill="#c3c0c0">
+                     <font>
+                        <Font name="Copperplate Gothic Light" size="22.0" />
+                     </font>
+                  </JFXButton>
+               </children>
+            </HBox>
+            <HBox alignment="TOP_RIGHT" layoutX="10.0" layoutY="162.0" prefHeight="75.0" prefWidth="219.0">
+               <children>
+                  <ImageView fitHeight="50.0" fitWidth="63.0" pickOnBounds="true" preserveRatio="true" />
+                  <JFXButton fx:id="orderBtn" alignment="CENTER" buttonType="RAISED" contentDisplay="CENTER" onAction="#switchOrder" prefHeight="53.0" prefWidth="161.0" text="Orders" textFill="#c3c0c0">
+                     <font>
+                        <Font name="Copperplate Gothic Light" size="22.0" />
+                     </font>
+                  </JFXButton>
+               </children>
+            </HBox>
+            <HBox alignment="TOP_RIGHT" layoutX="10.0" layoutY="10.0" prefHeight="75.0" prefWidth="219.0">
+               <children>
+                  <ImageView fitHeight="50.0" fitWidth="63.0" pickOnBounds="true" preserveRatio="true" />
+                  <JFXButton fx:id="chatBtn" alignment="CENTER" buttonType="RAISED" contentDisplay="CENTER" onAction="#switchChat" prefHeight="53.0" prefWidth="161.0" text="Chat" textFill="#c3c0c0">
+                     <font>
+                        <Font name="Copperplate Gothic Light" size="22.0" />
+                     </font>
+                  </JFXButton>
+               </children>
+            </HBox>
+            <HBox alignment="TOP_RIGHT" prefHeight="75.0" prefWidth="219.0">
+               <children>
+                  <ImageView fitHeight="50.0" fitWidth="63.0" pickOnBounds="true" preserveRatio="true" />
+                  <JFXButton fx:id="quizzBtn" alignment="CENTER" buttonType="RAISED" contentDisplay="CENTER" onAction="#switchQuizz" prefHeight="53.0" prefWidth="161.0" text="Quizzs" textFill="#c3c0c0">
+                     <font>
+                        <Font name="Copperplate Gothic Light" size="22.0" />
+                     </font>
+                  </JFXButton>
+               </children>
+            </HBox>
+         </children>
+      </VBox>
+      <ImageView fitHeight="61.0" fitWidth="50.0" layoutX="1245.0" layoutY="59.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../images/cart.png" />
+         </image>
+      </ImageView>
+      <Label layoutX="1212.0" layoutY="21.0" text="My cart" textFill="#c3c0c0">
+         <font>
+            <Font name="Copperplate Gothic Light" size="22.0" />
+         </font>
+      </Label>
+      <JFXButton layoutX="1210.0" layoutY="22.0" onAction="#switchcart" prefHeight="95.0" prefWidth="108.0" />
+   </children>
+</AnchorPane>

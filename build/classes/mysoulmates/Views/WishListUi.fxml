@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Tab?>
+<?import javafx.scene.control.TabPane?>
+
+<TabPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" side="LEFT" style="-fx-background-image: /mysoulmates/img/background.png;" tabClosingPolicy="UNAVAILABLE" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/8.0.141">
+  <tabs>
+    <Tab text="Untitled Tab 2" />
+    <Tab closable="false" style="backgroun-image: transparent;" text="Untitled Tab 1" />
+  </tabs>
+</TabPane>

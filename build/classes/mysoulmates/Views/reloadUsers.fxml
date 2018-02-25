@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.shape.Rectangle?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane id="AnchorPane" fx:id="holderPane" prefHeight="610.0" prefWidth="1090.0" xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1" fx:controller="mysoulmates.controllers.Controller_ReloadUsers">
+   <children>
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#c3a2dd" height="560.0" layoutX="288.0" layoutY="38.0" opacity="0.15" stroke="BLACK" strokeType="INSIDE" width="515.0" />
+      <Label layoutX="478.0" layoutY="210.0" prefHeight="69.0" prefWidth="135.0" text="Oooops !" textFill="#ebd6e0">
+         <font>
+            <Font name="Century Gothic Italic" size="30.0" />
+         </font>
+      </Label>
+      <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="455.0" layoutY="60.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../images/percent.png" />
+         </image>
+      </ImageView>
+      <Label layoutX="453.0" layoutY="371.0" text="Click to refresh " textFill="#ebd6e0">
+         <font>
+            <Font name="Century Gothic Italic" size="25.0" />
+         </font>
+      </Label>
+      <ImageView fx:id="reload" fitHeight="150.0" fitWidth="200.0" layoutX="471.0" layoutY="424.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../images/refresh.png" />
+         </image>
+      </ImageView>
+      <Label layoutX="314.0" layoutY="284.0" prefHeight="69.0" prefWidth="459.0" text="You have seen all users for now" textFill="#ebd6e0">
+         <font>
+            <Font name="Century Gothic Italic" size="30.0" />
+         </font>
+      </Label>
+   </children>
+</AnchorPane>

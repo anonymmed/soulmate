@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXComboBox?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Separator?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.layout.VBox?>
+
+
+<AnchorPane id="AnchorPane" prefHeight="684.0" prefWidth="1105.0" xmlns="http://javafx.com/javafx/9.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="mysoulmates.controllers.WelcomeAdminController">
+   <children>
+      <VBox layoutX="20.0" layoutY="20.0" prefHeight="431.0" prefWidth="402.0" spacing="10.0" styleClass="card" stylesheets="@../Styles/styles.css">
+         <children>
+            <HBox alignment="CENTER_LEFT" prefHeight="43.0" prefWidth="320.0" spacing="20.0" style="-fx-background-color: #00A65A;">
+               <children>
+                  <ImageView fitHeight="25.0" fitWidth="25.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../images/add.png" />
+                     </image>
+                  </ImageView>
+                  <Label prefHeight="20.0" prefWidth="233.0" style="-fx-font-weight: bold; -fx-text-fill: white; -fx-font-size: 17px;" text="Quizz Stats" />
+               </children>
+               <padding>
+                  <Insets left="20.0" />
+               </padding>
+            </HBox>
+            <Separator prefHeight="2.0" prefWidth="384.0" />
+            <GridPane>
+              <columnConstraints>
+                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+              </columnConstraints>
+              <rowConstraints>
+                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+              </rowConstraints>
+               <children>
+                  <Label prefHeight="17.0" prefWidth="163.0" text="Choose Category" />
+                  <JFXComboBox fx:id="cbTheme" onAction="#changeStats" prefHeight="27.0" prefWidth="226.0" GridPane.columnIndex="1" />
+               </children>
+            </GridPane>
+            <Separator prefWidth="200.0" />
+            <Pane fx:id="state" prefHeight="236.0" prefWidth="370.0" />
+            <Label fx:id="caption" prefHeight="17.0" prefWidth="19.0" />
+         </children>
+      </VBox>
+   </children>
+</AnchorPane>
